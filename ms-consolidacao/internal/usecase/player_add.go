@@ -8,14 +8,21 @@ import (
 	"github.com/devfullcycle/imersao10-consolidacao/pkg/uow"
 )
 
+// {"id":"1A","name":"Cristiano Ronaldo","initialPrice":10.0}
 type AddPlayerInput struct {
-	ID           string
-	Name         string
-	InitialPrice float64
+	ID           string  `json:"id"`
+	Name         string  `json:"name"`
+	InitialPrice float64 `json:"initial_price"`
 }
 
 type AddPlayerUseCase struct {
 	Uow uow.UowInterface
+}
+
+func NewAddPlayerUseCase(uow uow.UowInterface) *AddPlayerUseCase {
+	return &AddPlayerUseCase{
+		Uow: uow,
+	}
 }
 
 func (a *AddPlayerUseCase) Execute(ctx context.Context, input AddPlayerInput) error {
@@ -25,7 +32,8 @@ func (a *AddPlayerUseCase) Execute(ctx context.Context, input AddPlayerInput) er
 	if err != nil {
 		return err
 	}
-	return a.Uow.CommitOrRollback()
+	a.Uow.CommitOrRollback()
+	return nil
 }
 
 func (a *AddPlayerUseCase) getPlayerRepository(ctx context.Context) repository.PlayerRepositoryInterface {

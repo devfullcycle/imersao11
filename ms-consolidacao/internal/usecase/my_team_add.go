@@ -25,7 +25,8 @@ func (a *AddMyTeamUseCase) Execute(ctx context.Context, input AddMyTeamInput) er
 	if err != nil {
 		return err
 	}
-	return a.Uow.CommitOrRollback()
+	a.Uow.CommitOrRollback()
+	return nil
 }
 
 func (a *AddMyTeamUseCase) getMyTeamRepository(ctx context.Context) repository.MyTeamRepositoryInterface {

@@ -9,8 +9,8 @@ import (
 )
 
 type MyTeamChoosePlayersInput struct {
-	ID        string
-	PlayersID []string
+	ID        string   `json:"my_team_id"`
+	PlayersID []string `json:"players"`
 }
 
 type MyTeamChoosePlayersUseCase struct {
@@ -25,17 +25,22 @@ func NewMyTeamChoosePlayersUseCase(uow uow.UowInterface) *MyTeamChoosePlayersUse
 
 func (u *MyTeamChoosePlayersUseCase) Execute(ctx context.Context, input MyTeamChoosePlayersInput) error {
 	err := u.Uow.Do(ctx, func(_ *uow.Uow) error {
+		playerRepo := u.getPlayerRepository(ctx)
 		myTeamRepo := u.getMyTeamRepository(ctx)
 		myTeam, err := myTeamRepo.FindByID(ctx, input.ID)
 		if err != nil {
 			return err
 		}
-		playerRepo := u.getPlayerRepository(ctx)
+		myPlayers, err := playerRepo.FindAllByIDs(ctx, myTeam.Players)
+		if err != nil {
+			return err
+		}
+
 		players, err := playerRepo.FindAllByIDs(ctx, input.PlayersID)
 		if err != nil {
 			return err
 		}
-		service.ChoosePlayers(myTeam, players)
+		service.ChoosePlayers(myTeam, myPlayers, players)
 		err = myTeamRepo.SavePlayers(ctx, myTeam)
 		if err != nil {
 			return err

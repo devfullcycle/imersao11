@@ -11,8 +11,8 @@ import (
 )
 
 type MatchUpdateResultInput struct {
-	ID     string
-	Result string
+	ID     string `json:"match_id"`
+	Result string `json:"result"`
 }
 
 type MatchUpdateResultUseCase struct {
@@ -37,7 +37,6 @@ func (u *MatchUpdateResultUseCase) Execute(ctx context.Context, input MatchUpdat
 		teamAResult, _ := strconv.Atoi(matchResult[0])
 		teamBResult, _ := strconv.Atoi(matchResult[1])
 		match.Result = *entity.NewMatchResult(teamAResult, teamBResult)
-
 		err = matchRepo.Update(ctx, match)
 		if err != nil {
 			return err
