@@ -1,5 +1,8 @@
 FROM python:3.10.2-slim
 
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
 RUN useradd -ms /bin/bash python
 
 RUN pip install pipenv
