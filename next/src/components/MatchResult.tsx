@@ -1,8 +1,7 @@
 import { Box, styled, Typography } from "@mui/material";
-import { match } from "assert";
 import Image from "next/image";
 import { Match, TeamsImagesMap } from "../util/models";
-
+import {format, parseISO} from 'date-fns';
 const ResultContainer = styled(Box)(({ theme }) => ({
   display: "flex",
   width: "400px",
@@ -42,18 +41,18 @@ export const MatchResult = (props: MatchResultProps) => {
       <Flag src={TeamsImagesMap[match.team_a]} alt={match.team_a} />
       <ResultContainer>
         <ResultItem width={"150px"} justifyContent="flex-end">
-          <Typography variant="h6">Brasil</Typography>
+          <Typography variant="h6">{match.team_a}</Typography>
         </ResultItem>
         <ResultItem width={"100px"} justifyContent="center" position="relative">
           <Box sx={{ position: "absolute", top: 0, fontSize: "0.70rem" }}>
-            12/12/2022 00:00
+            {format(parseISO(match.match_date), 'dd/MM/yyyy HH:mm')}
           </Box>
           <Typography variant="h6" sx={{ fontWeight: "900" }}>
-            1-0
+            {match.result.split('-').join(' - ')}
           </Typography>
         </ResultItem>
         <ResultItem width={"150px"} justifyContent="flex-start">
-          <Typography variant="h6">Argentina</Typography>
+          <Typography variant="h6">{match.team_b}</Typography>
         </ResultItem>
       </ResultContainer>
       <Flag src={TeamsImagesMap[match.team_b]} alt={match.team_a} />

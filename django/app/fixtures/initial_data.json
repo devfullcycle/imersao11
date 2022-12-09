@@ -3,8 +3,8 @@
         "model": "auth.user",
         "pk": 1,
         "fields": {
-            "password": "pbkdf2_sha256$390000$2bQK2fQi1XAmaMBh2FrXj2$FwxDF6TTTExVuIvJQ5VE16r0WOqoIaX1a5lpKEf53jI=",
-            "last_login": "2022-11-30T10:03:35.988Z",
+            "password": "pbkdf2_sha256$390000$Wkm5wqZ5xIKSMmrALdAmKY$/hEivykHXfjSs73YJGQvM7Kq5/EQMIgB+Pfrj9RE1Sc=",
+            "last_login": "2022-11-28T07:46:43.073Z",
             "is_superuser": true,
             "username": "admin@user.com",
             "first_name": "",
@@ -12,7 +12,7 @@
             "email": "admin@user.com",
             "is_staff": true,
             "is_active": true,
-            "date_joined": "2022-11-30T10:03:18.946Z",
+            "date_joined": "2022-11-28T07:46:12.228Z",
             "groups": [],
             "user_permissions": []
         }
@@ -21,7 +21,8 @@
         "model": "app.player",
         "pk": 1,
         "fields": {
-            "name": "Neymar",
+            "name": "Cristiano Ronaldo",
+            "uuid": "4876d14f-d998-4abf-96ef-89fd53185464",
             "initial_price": 10.0
         }
     },
@@ -29,7 +30,8 @@
         "model": "app.player",
         "pk": 2,
         "fields": {
-            "name": "Messi",
+            "name": "De Bruyne",
+            "uuid": "0b8f08d8-d871-4a42-b395-17d698f477db",
             "initial_price": 10.0
         }
     },
@@ -37,7 +39,62 @@
         "model": "app.player",
         "pk": 3,
         "fields": {
-            "name": "Cristiano Ronaldo",
+            "name": "Harry Kane",
+            "uuid": "0c9ba4fb-4609-464d-9845-421ca1e1e3bd",
+            "initial_price": 10.0
+        }
+    },
+    {
+        "model": "app.player",
+        "pk": 4,
+        "fields": {
+            "name": "Lewandowski",
+            "uuid": "67fbf409-d94f-4858-8423-8043576cda05",
+            "initial_price": 10.0
+        }
+    },
+    {
+        "model": "app.player",
+        "pk": 5,
+        "fields": {
+            "name": "Maguirre",
+            "uuid": "c7830b65-cf79-49b7-a878-82250fec1d94",
+            "initial_price": 10.0
+        }
+    },
+    {
+        "model": "app.player",
+        "pk": 6,
+        "fields": {
+            "name": "Messi",
+            "uuid": "64fb9c2f-a45b-4f96-9d8b-b127878ca6f3",
+            "initial_price": 10.0
+        }
+    },
+    {
+        "model": "app.player",
+        "pk": 7,
+        "fields": {
+            "name": "Neymar",
+            "uuid": "0f463bea-1dbd-4765-b080-9f5f170b6ded",
+            "initial_price": 10.0
+        }
+    },
+    {
+        "model": "app.player",
+        "pk": 8,
+        "fields": {
+            "name": "Richarlison",
+            "uuid": "5ce233a8-5cd8-4a85-8156-9ac255cf909e",
+            "initial_price": 10.0
+        }
+    },
+    {
+        "model": "app.player",
+        "pk": 9,
+        "fields": {
+            "name": "Vinicius Junior",
+            "uuid": "c707bfa9-074e-4636-8772-633e4b56248d",
             "initial_price": 10.0
         }
     },
@@ -45,58 +102,97 @@
         "model": "app.team",
         "pk": 1,
         "fields": {
-            "name": "Brasil"
+            "name": "Argentina",
+            "uuid": "76ef612d-acdf-48cd-af1c-9313d16ab642"
         }
     },
     {
         "model": "app.team",
         "pk": 2,
         "fields": {
-            "name": "Argentina"
+            "name": "Alemanha",
+            "uuid": "b30cf8e9-d02e-408e-9494-c4ae95b85b49"
         }
     },
     {
         "model": "app.team",
         "pk": 3,
         "fields": {
-            "name": "Portugal"
+            "name": "Brasil",
+            "uuid": "4da19d91-c700-4865-8333-80efc789a70f"
         }
     },
     {
         "model": "app.team",
         "pk": 4,
         "fields": {
-            "name": "Alemanha"
+            "name": "Bélgica",
+            "uuid": "52f02f8d-bf04-4bd2-8b3d-28ec97e562a8"
+        }
+    },
+    {
+        "model": "app.team",
+        "pk": 5,
+        "fields": {
+            "name": "Portugal",
+            "uuid": "b503dc80-1f8c-4c8e-8218-a37049676815"
+        }
+    },
+    {
+        "model": "app.team",
+        "pk": 6,
+        "fields": {
+            "name": "Polônia",
+            "uuid": "322dc42e-33a0-42cb-8c50-5d1e5fc0a308"
+        }
+    },
+    {
+        "model": "app.team",
+        "pk": 7,
+        "fields": {
+            "name": "Inglaterra",
+            "uuid": "ace3abc1-003d-4baf-8d93-51135c437c7a"
         }
     },
     {
         "model": "app.myteam",
         "pk": 1,
         "fields": {
-            "players": [
-                1,
-                2
-            ]
+            "uuid": "22087246-01bc-46ad-a9d9-a99a6d734167"
         }
     },
     {
         "model": "app.match",
         "pk": 1,
         "fields": {
-            "match_date": "2022-12-01T10:41:42Z",
+            "uuid": "97ed7b97-ea2f-4bab-80e6-e14800e4bfcc",
+            "match_date": "2022-11-28T07:51:48Z",
             "team_a": 1,
-            "team_a_goal": 2,
+            "team_a_goal": 0,
             "team_b": 2,
-            "team_b_goal": 1
+            "team_b_goal": 0
+        }
+    },
+    {
+        "model": "app.match",
+        "pk": 2,
+        "fields": {
+            "uuid": "a9d93ef1-7f1a-489f-89a3-d0321735c326",
+            "match_date": "2022-11-28T07:52:12Z",
+            "team_a": 3,
+            "team_a_goal": 0,
+            "team_b": 4,
+            "team_b_goal": 0
         }
     },
     {
         "model": "app.action",
         "pk": 1,
         "fields": {
-            "player": 1,
+            "uuid": "ea32249c-4474-4e56-b6b6-747573c43552",
+            "player": 6,
             "team": 1,
-            "minutes": 10,
+            "minutes": 20,
             "match": 1,
             "action": "goal"
         }
@@ -105,22 +201,36 @@
         "model": "app.action",
         "pk": 2,
         "fields": {
-            "player": 2,
-            "team": 2,
-            "minutes": 11,
-            "match": 1,
-            "action": "goal"
+            "uuid": "24420fc7-9e3f-4b9a-af50-025f4b857c9e",
+            "player": 8,
+            "team": 3,
+            "minutes": 5,
+            "match": 2,
+            "action": "yellow card"
         }
     },
     {
         "model": "app.action",
         "pk": 3,
         "fields": {
-            "player": 2,
-            "team": 2,
-            "minutes": 15,
-            "match": 1,
-            "action": "yellow card"
+            "uuid": "b2c3e094-0c73-4a18-a1aa-b91b42124627",
+            "player": 9,
+            "team": 3,
+            "minutes": 10,
+            "match": 2,
+            "action": "assist"
+        }
+    },
+    {
+        "model": "app.action",
+        "pk": 4,
+        "fields": {
+            "uuid": "a315fee9-55de-4b5b-aed7-9ff7dee268dc",
+            "player": 7,
+            "team": 3,
+            "minutes": 10,
+            "match": 2,
+            "action": "goal"
         }
     }
 ]

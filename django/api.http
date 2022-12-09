@@ -1,0 +1,6 @@
+PUT http://localhost:8000/my-teams/22087246-01bc-46ad-a9d9-a99a6d734167/players
+Content-Type: application/json
+
+{
+    "players_uuid": ["c707bfa9-074e-4636-8772-633e4b56248d"]
+}

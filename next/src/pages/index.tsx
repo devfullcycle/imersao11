@@ -6,16 +6,26 @@ import { Label } from "../components/Label";
 import { Page } from "../components/Page";
 import { Section } from "../components/Section";
 import { TeamLogo } from "../components/TeamLogo";
+import { useHttp } from "../hooks/useHttp";
+import { fetcherStats } from "../util/http";
 
 const BudgetContainer = styled(Section)(({ theme }) => ({
   width: "800px",
   height: "300px",
   marginTop: theme.spacing(8),
-  display: 'flex',
-  alignItems: 'center'
+  display: "flex",
+  alignItems: "center",
 }));
 
 const HomePage: NextPage = () => {
+  const { data, error } = useHttp(
+    "/my-teams/22087246-01bc-46ad-a9d9-a99a6d734167/balance",
+    fetcherStats,
+    {
+      refreshInterval: 5000,
+    }
+  );
+
   return (
     <Page>
       <Grid
@@ -43,9 +53,13 @@ const HomePage: NextPage = () => {
                 }}
               >
                 <Label>Última pontuação</Label>
-                <Label>99.04</Label>
+                <Label>-</Label>
               </Grid>
-              <Grid item xs={2} sx={{ display: "flex", justifyContent: "center" }}>
+              <Grid
+                item
+                xs={2}
+                sx={{ display: "flex", justifyContent: "center" }}
+              >
                 <Divider orientation="vertical" sx={{ height: "auto" }} />
               </Grid>
               <Grid
@@ -58,7 +72,7 @@ const HomePage: NextPage = () => {
                 }}
               >
                 <Label>Patrimônio</Label>
-                <Label>300</Label>
+                <Label>{data ? data.balance : 0}</Label>
               </Grid>
             </Grid>
           </BudgetContainer>

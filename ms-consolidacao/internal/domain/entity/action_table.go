@@ -13,9 +13,10 @@ type ActionTable struct {
 
 func (a *ActionTable) Init() {
 	a.Action = map[string]int{
-		"yellow_card": -1,
-		"red_card":    -3,
+		"yellow card": -1,
+		"red card":    -3,
 		"goal":        5,
+		"assist":      3,
 	}
 }
 
