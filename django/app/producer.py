@@ -14,7 +14,7 @@ def acked(err, msg):
     if err is not None:
         print(f"Failed to deliver message: {str(msg)}: {str(err)}")
     else:
-        print(f"Message produced: {str(msg)}")
+        print(f"Message produced: {str(msg.value())}")
 
 
 def publish_message(topic, value, key='key'):
