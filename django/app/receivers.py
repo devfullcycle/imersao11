@@ -1,5 +1,5 @@
 from .models import Player, Team, Match, Action, MyTeam
-from django.db.models.signals import post_save, pre_save
+from django.db.models.signals import post_save, pre_save, m2m_changed
 from django.dispatch import receiver
 from .producer import safe_publish_message
 import json
@@ -25,19 +25,23 @@ def publish_team_created(sender, instance: Team, created: bool, **kwargs):
         print('Team created')
 
 
+@receiver(m2m_changed, sender=MyTeam.players.through)
+def my_players_changed(sender, instance: Player, action, **kwargs):    
+    instance.save()
+    
 @receiver(post_save, sender=MyTeam)
-def publish_my_players_saved(sender, instance: MyTeam, created: bool, **kwargs):
-    print('My players saved')
-    my_team = Team.objects.get(pk=instance.id)
+def publish_my_players_saved(sender, instance: MyTeam, created: bool, **kwargs):    
+    print('My players saved')    
+    my_team = MyTeam.objects.get(pk=instance.id)    
     safe_publish_message(
         'chooseTeam',
         json.dumps({
             # 'my_team_id': instance.id,
             'my_team_id': str(my_team.uuid),
-            'players': [str(player.uuid) for player in my_team.players.all()]
+            'players': [str(player.uuid) for player in instance.players.all()]
         })
     )
-    # publish('player_created', instance)
+    # publish('player_created', instance)    
 
 
 @receiver(post_save, sender=Match)
