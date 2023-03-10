@@ -62,4 +62,6 @@ services:
         kafka-topics --create --topic=chooseTeam --if-not-exists --bootstrap-server=broker:29092 &&
         kafka-topics --create --topic=newAction --if-not-exists --bootstrap-server=broker:29092"
 
-  
+networks:
+  default:
+    name: imersao11

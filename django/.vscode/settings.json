@@ -1,6 +1,7 @@
 {
     "python.defaultInterpreterPath": "/home/python/app/.venv/bin/python",
     "python.terminal.activateEnvironment": true,
+    "peacock.remoteColor": "#0C4B33",
     "workbench.colorCustomizations": {
         "activityBar.activeBackground": "#137751",
         "activityBar.background": "#137751",
@@ -10,16 +11,14 @@
         "activityBarBadge.foreground": "#15202b",
         "commandCenter.border": "#e7e7e799",
         "sash.hoverBorder": "#137751",
-        "statusBar.background": "#137751",
+        "statusBar.background": "#0c4b33",
         "statusBar.foreground": "#e7e7e7",
-        "statusBarItem.hoverBackground": "#1aa36f",
-        "statusBarItem.remoteBackground": "#137751",
+        "statusBarItem.hoverBackground": "#137751",
+        "statusBarItem.remoteBackground": "#0c4b33",
         "statusBarItem.remoteForeground": "#e7e7e7",
-        "tab.activeBorder": "#137751",
-        "titleBar.activeBackground": "#137751",
+        "titleBar.activeBackground": "#0c4b33",
         "titleBar.activeForeground": "#e7e7e7",
-        "titleBar.inactiveBackground": "#13775199",
+        "titleBar.inactiveBackground": "#0c4b3399",
         "titleBar.inactiveForeground": "#e7e7e799"
     },
-    "peacock.remoteColor": "#0C4B33",
 }
