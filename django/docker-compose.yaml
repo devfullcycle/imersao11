@@ -9,7 +9,3 @@ services:
       - 8000:8000
     extra_hosts:
       - "host.docker.internal:172.17.0.1"
-networks:
-  default:
-    name: imersao11      
-    external: true
